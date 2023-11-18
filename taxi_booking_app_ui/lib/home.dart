@@ -6,11 +6,11 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: content(),
+      body: content(context),
     );
   }
 
-  Widget content() {
+  Widget content(BuildContext context) {
     return Column(
       children: [
         SizedBox(
@@ -70,20 +70,23 @@ class Home extends StatelessWidget {
         SizedBox(
           height: 80,
         ),
-        Container(
-          height: 60,
-          width: 350,
-          decoration: BoxDecoration(
-            color: Colors.amber[600],
-            borderRadius: BorderRadius.circular(20),
-          ),
-          child: Center(
-            child: Text(
-              "Book a ride",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
+        GestureDetector(
+          onTap: (() => Navigator.of(context).pushNamed('/booking')),
+          child: Container(
+            height: 60,
+            width: 350,
+            decoration: BoxDecoration(
+              color: Colors.amber[600],
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Center(
+              child: Text(
+                "Book a ride",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
           ),
