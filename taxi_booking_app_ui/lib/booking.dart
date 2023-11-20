@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/container.dart';
+import 'package:flutter/src/widgets/framework.dart';
 
 class Booking extends StatelessWidget {
   const Booking({super.key});
@@ -12,11 +14,11 @@ class Booking extends StatelessWidget {
         elevation: 0,
         toolbarHeight: 100,
       ),
-      body: content(),
+      body: content(context),
     );
   }
 
-  Widget content() {
+  Widget content(BuildContext context) {
     return Center(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -39,11 +41,11 @@ class Booking extends StatelessWidget {
           SizedBox(
             height: 10,
           ),
-          locationInputField("No XX.XXXXX", true),
+          locationInputField("No XX,XXXXX", true),
           SizedBox(
             height: 20,
           ),
-          locationInputField("XXX Mail", true),
+          locationInputField("XXX Mall", true),
           SizedBox(
             height: 20,
           ),
@@ -55,24 +57,26 @@ class Booking extends StatelessWidget {
           SizedBox(
             height: 50,
           ),
-          Container(
-            height: 60,
-            width: 350,
-            decoration: BoxDecoration(
-              color: Colors.amber[600],
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Center(
-              child: Text(
-                "Confirm booking",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
+          GestureDetector(
+            onTap: (() => Navigator.of(context).pushNamed('/paymentMethod')),
+            child: Container(
+              height: 60,
+              width: 350,
+              decoration: BoxDecoration(
+                color: Colors.amber[600],
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Center(
+                child: Text(
+                  "Confirm booking",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold),
                 ),
               ),
             ),
-          ),
+          )
         ],
       ),
     );
@@ -82,19 +86,17 @@ class Booking extends StatelessWidget {
 Widget locationInputField(String title, bool isHistory) {
   return Container(
     height: 60,
-    width: 250,
+    width: 350,
     decoration: BoxDecoration(
-      color: Colors.white,
-      borderRadius: BorderRadius.circular(20),
-      boxShadow: [
-        BoxShadow(
-          color: Colors.grey.withOpacity(0.5),
-          spreadRadius: 5,
-          blurRadius: 7,
-          offset: Offset(0, 3),
-        ),
-      ],
-    ),
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+        boxShadow: [
+          BoxShadow(
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 5,
+              blurRadius: 7,
+              offset: Offset(0, 3))
+        ]),
     child: Align(
       alignment: Alignment.centerLeft,
       child: Padding(
