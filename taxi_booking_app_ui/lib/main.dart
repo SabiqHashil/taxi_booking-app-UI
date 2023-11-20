@@ -5,7 +5,7 @@ import 'package:taxi_booking_app_ui/paymentMethod.dart';
 
 void main() => runApp(MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: "/paymentMethod",
+      // initialRoute: "/paymentMethod",
       routes: {
         '/': ((context) => const Home()),
         '/booking': ((context) => const Booking()),
