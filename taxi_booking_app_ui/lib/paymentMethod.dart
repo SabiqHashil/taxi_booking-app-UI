@@ -18,11 +18,11 @@ class PaymentMethod extends StatelessWidget {
           ),
         ],
       ),
-      body: content(),
+      body: content(context),
     );
   }
 
-  Widget content() {
+  Widget content(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: Column(
@@ -42,20 +42,23 @@ class PaymentMethod extends StatelessWidget {
           SizedBox(
             height: 380,
           ),
-          Container(
-            height: 60,
-            width: 250,
-            decoration: BoxDecoration(
-              color: Colors.amber[600],
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Center(
-              child: Text(
-                "Continue",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
+          GestureDetector(
+            onTap: () => Navigator.of(context).pushNamed("/summary"),
+            child: Container(
+              height: 60,
+              width: 250,
+              decoration: BoxDecoration(
+                color: Colors.amber[600],
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Center(
+                child: Text(
+                  "Continue",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ),

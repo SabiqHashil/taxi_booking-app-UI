@@ -6,7 +6,6 @@ import 'package:taxi_booking_app_ui/summary.dart';
 
 void main() => runApp(MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: "/summary",
       routes: {
         '/': ((context) => const Home()),
         '/booking': ((context) => const Booking()),

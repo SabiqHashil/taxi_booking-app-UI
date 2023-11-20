@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:taxi_booking_app_ui/booking.dart';
 
 class Summary extends StatelessWidget {
@@ -73,6 +74,36 @@ class Summary extends StatelessWidget {
           ),
           SizedBox(
             height: 10,
+          ),
+          RatingBar.builder(
+              initialRating: 0,
+              itemPadding: EdgeInsets.all(15),
+              itemCount: 5,
+              itemBuilder: ((context, index) => Icon(
+                    Icons.star,
+                    color: Colors.yellow[500],
+                  )),
+              onRatingUpdate: (value) {}),
+          SizedBox(
+            height: 30,
+          ),
+          Container(
+            height: 60,
+            width: 350,
+            decoration: BoxDecoration(
+              color: Colors.amber[600],
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Center(
+              child: Text(
+                "Submit",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
           )
         ],
       ),
